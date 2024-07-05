@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Telegram Mini App - Subscribe to Channel</title>
+  <title>Мини-приложение Telegram - Подписка на канал</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -39,19 +39,21 @@
 </head>
 <body>
   <div class="container">
-    <h1>Subscribe to our Channel</h1>
-    <p>Click the button below to subscribe to our channel:</p>
-    <button id="subscribe-btn" class="subscribe-btn">Subscribe</button>
+    <h1>Подпишитесь на наш канал</h1>
+    <p>Нажмите на кнопку ниже, чтобы подписаться на наш канал:</p>
+    <button id="subscribe-btn" class="subscribe-btn">Подписаться</button>
   </div>
 
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
   <script>
-    const subscribeBtn = document.getElementById('subscribe-btn');
-
-    subscribeBtn.addEventListener('click', () => {
+    document.addEventListener('DOMContentLoaded', () => {
       Telegram.WebApp.initDataUnsafe();
-      Telegram.WebApp.sendData('subscribe');
-      Telegram.WebApp.close();
+
+      const subscribeBtn = document.getElementById('subscribe-btn');
+      subscribeBtn.addEventListener('click', () => {
+        Telegram.WebApp.sendData('subscribe');
+        Telegram.WebApp.close();
+      });
     });
   </script>
 </body>
