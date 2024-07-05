@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Telegram Mini App - Subscribe to Channel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .subscribe-btn {
+      background-color: #2ca5e0;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .subscribe-btn:hover {
+      background-color: #1a87c0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Subscribe to our Channel</h1>
+    <p>Click the button below to subscribe to our channel:</p>
+    <button id="subscribe-btn" class="subscribe-btn">Subscribe</button>
+  </div>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+  <script>
+    const subscribeBtn = document.getElementById('subscribe-btn');
+
+    subscribeBtn.addEventListener('click', () => {
+      Telegram.WebApp.initDataUnsafe();
+      Telegram.WebApp.sendData('subscribe');
+      Telegram.WebApp.close();
+    });
+  </script>
+</body>
+</html>
